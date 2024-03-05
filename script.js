@@ -34,7 +34,7 @@ const audio = document.createElement('audio'),
   next_btn = document.querySelector('#next_track'),
   prev_btn = document.querySelector('#prev_track'),
   slider = document.querySelector('.slider'),
-  curr_time = document.querySelector('.curret_time'),
+  curr_time = document.querySelector('.current_time'),
   total_duration = document.querySelector('.total_duration'),
   track_list = document.querySelector('#buttons_container')
 
@@ -89,7 +89,7 @@ function updateProgress(e){
   const progressPersent = (currentTime / duration) * 100;
   slider.style.width = `${progressPersent}%`;
 
- // caclulateProgress(duration, currentTime)
+  caclulateProgress(duration, currentTime)
 
   
 
@@ -99,19 +99,19 @@ function updateProgress(e){
 
 audio.addEventListener('timeupdate', updateProgress)
 
-function setProgress(e){
+function setProgress(e){  
 
-  //alert( audio.durationn)
+  //console.log(audio.duration)
 
   const width = e.target.clientWidth
   const click = e.offsetX 
   const duration = audio.duration
   audio.currentTime = (click / width) * duration
  
-
+  // console.log((click / width) * duration)
 }
 
-audio.addEventListener('click', setProgress)
+player.addEventListener('click', setProgress)
 
 
 
@@ -237,13 +237,13 @@ function caclulateProgress(duration, currentTime) {
     if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
     if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
     if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
-    if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+    if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }  
 
-   //alert(currentMinutes + ":" + currentSeconds)
-
-    // Display the updated duration
-   //curr_time.textContent = currentMinutes + ":" + currentSeconds;
+   
+    curr_time.textContent = currentMinutes + ":" + currentSeconds;
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
+
+    
   }    
 
 
