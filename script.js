@@ -37,6 +37,7 @@ const audio = document.createElement('audio'),
   curr_time = document.querySelector('.curret_time'),
   total_duration = document.querySelector('.total_duration'),
   track_list = document.querySelector('#buttons_container')
+
 let track_index = 0
 
 
@@ -46,37 +47,21 @@ function getTrackPath(index){
 
 }
 
-// function setColors() {
 
-//   for (const key in songs){      
+window.addEventListener("DOMContentLoaded", ()=>{
 
-//     document.getElementById(key).style.color = 'var(--button-color)'
+  createButtons(Object.keys(songs).length) 
+  loadTrack(track_index)   
 
-//   }
+})
 
-// }   
+window.addEventListener('load', function() {
+  window.history.pushState({}, '')
+})
 
-  // window.addEventListener("loaded", ()=>{
-
-  //   createButtons(Object.keys(songs).length)  
-  //   track_button = document.querySelector(".song_button")
-
-  // })
-
-  window.addEventListener("DOMContentLoaded", ()=>{
-
-    createButtons(Object.keys(songs).length) 
-    loadTrack(track_index)   
-
-  })
-
-  window.addEventListener('load', function() {
-    window.history.pushState({}, '')
-  })
-  
-  window.addEventListener('popstate', function() {
-    window.history.pushState({}, '')
-  })
+window.addEventListener('popstate', function() {
+  window.history.pushState({}, '')
+})
 
 
 
@@ -92,12 +77,8 @@ function createButtons(count){
 }
 
 function loadTrack(track_index){  
-
-  //resetValues();  
-  audio.src = getTrackPath(track_index)
-  // document.getElementById(track_index).style.color = 'var(--button-pressed-color)'
-
-  //alert(track_index)
+ 
+  audio.src = getTrackPath(track_index) 
 
 }
 
@@ -107,16 +88,26 @@ function updateProgress(e){
   const {duration, currentTime} = e.srcElement  
   const progressPersent = (currentTime / duration) * 100;
   slider.style.width = `${progressPersent}%`;
+
+ // caclulateProgress(duration, currentTime)
+
+  
+
+
+
 }
 
 audio.addEventListener('timeupdate', updateProgress)
 
 function setProgress(e){
 
+  //alert( audio.durationn)
+
   const width = e.target.clientWidth
   const click = e.offsetX 
   const duration = audio.duration
   audio.currentTime = (click / width) * duration
+ 
 
 }
 
@@ -134,8 +125,6 @@ play_btn.addEventListener('click', () => {
 
   } else {
 
-    // loadTrack(track_index)
-    //alert(track_index)
 
     playTrack()
 
@@ -206,8 +195,7 @@ document.addEventListener('click', event => {
     document.getElementById(track_index).style.color = 'var(--button-color)' 
 
     track_index = event.target.id
-
-    //alert(event.target.id)
+    
     loadTrack(track_index)
 
     playTrack()
@@ -221,47 +209,45 @@ document.addEventListener('click', event => {
 })
 
 
-// Function to reset all values to their default
-function resetValues() {
-  curr_time.textContent = "00:00";
-  total_duration.textContent = "00:00";
-  slider.value = 0;
+
+// function resetValues() {
+//   curr_time.textContent = "00:00";
+//   total_duration.textContent = "00:00";
+//   // slider.value = 0;
+// }
+
+
+
+function caclulateProgress(duration, currentTime) { 
+
+  //alert(duration)
+
+  // Check if the current track duration is a legible number
+  if (!isNaN(duration)) {
+    
+   
+
+    // Calculate the time left and the total duration
+    let currentMinutes = Math.floor(currentTime / 60);
+    let currentSeconds = Math.floor(currentTime - currentMinutes * 60);
+    let durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration - durationMinutes * 60);
+
+    // Add a zero to the single digit time values
+    if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+    if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+    if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+    if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+   //alert(currentMinutes + ":" + currentSeconds)
+
+    // Display the updated duration
+   //curr_time.textContent = currentMinutes + ":" + currentSeconds;
+    total_duration.textContent = durationMinutes + ":" + durationSeconds;
+  }    
+
+
 }
-
-// function seekUpdate() {
-  
-//   let seekPosition = 0;
-
- 
-
-// // Check if the current track duration is a legible number
-// if (!isNaN(audio.duration)) {
-
-  
-//   seekPosition = audio.currentTime * (100 / audio.duration);
-//   slider.value = seekPosition;
-
-//   // Calculate the time left and the total duration
-//   let currentMinutes = Math.floor(audio.currentTime / 60);
-//   let currentSeconds = Math.floor(audio.currentTime - currentMinutes * 60);
-//   let durationMinutes = Math.floor(audio.duration / 60);
-//   let durationSeconds = Math.floor(audio.duration - durationMinutes * 60);
-
-//   // Add a zero to the single digit time values
-//   if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
-//   if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
-//   if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
-//   if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
-
-//   // Display the updated duration
-//   curr_time.textContent = currentMinutes + ":" + currentSeconds;
-//   total_duration.textContent = durationMinutes + ":" + durationSeconds;
-// }
-  
-
-
-// }
-
 
 
 
