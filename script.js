@@ -30,6 +30,7 @@ const songs = {
 
 const audio = document.createElement('audio'),
   player = document.querySelector('.player_container'),
+  slider_container = document.querySelector('.slider_container'),
   play_btn = document.querySelector('#play_track'),
   next_btn = document.querySelector('#next_track'),
   prev_btn = document.querySelector('#prev_track'),
@@ -65,6 +66,20 @@ window.addEventListener('popstate', function() {
 
 
 
+
+
+
+// audio.addEventListener("loadedmetadata", (event) => {
+//   // console.log(
+//   //   "The duration and dimensions of the media and tracks are now known.",
+//   // );
+
+
+
+
+
+// });
+
 function createButtons(count){
   for(let i = 0; i < count; i++){
     let btn = document.createElement('button')
@@ -92,9 +107,6 @@ function updateProgress(e){
   caclulateProgress(duration, currentTime)
 
   
-
-
-
 }
 
 audio.addEventListener('timeupdate', updateProgress)
@@ -111,7 +123,7 @@ function setProgress(e){
   // console.log((click / width) * duration)
 }
 
-player.addEventListener('click', setProgress)
+slider_container.addEventListener('click', setProgress)
 
 
 
@@ -150,6 +162,11 @@ function pauseTrack() {
 
 
 function nextTrack() {
+
+  audio.pause();
+  audio.currentTime = 0;
+
+  
 
   document.getElementById(track_index).style.color = 'var(--button-color)' 
 
