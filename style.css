@@ -1,4 +1,4 @@
-body{
+LPbody{
 
   background-color: rgb(33, 35, 39);
   --button-pressed-color: #e0a016;
@@ -82,13 +82,13 @@ p{
   text-align: center;
   font-weight: bold;
   color:  #606975; 
-  font-size: 3em;
+  font-size: 4em;
   padding: 8px;
   width: 120px;
   height: 100px;
   margin: 0px 60px;
   background-color: rgb(36, 36, 36);
-  border:solid rgb(110, 110, 110); 
+  border:solid rgb(120, 120, 120); 
   border-width:0.5px;
   border-radius: 50%;
   -webkit-tap-highlight-color: rgba(167, 169, 170, 0);  
