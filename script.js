@@ -215,15 +215,13 @@ document.addEventListener('click', event => {
     
     loadTrack(track_index)
 
-    playTrack()
+    playTrack()    
 
-    
-
-  }
-    
-
+  }   
 
 })
+
+audio.addEventListener('ended', nextTrack)
 
 
 
