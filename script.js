@@ -221,8 +221,9 @@ document.addEventListener('click', event => {
 
 })
 
-audio.addEventListener('ended', nextTrack)
 
+
+audio.addEventListener('ended', nextTrack)
 
 
 // function resetValues() {
