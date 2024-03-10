@@ -90,7 +90,7 @@ p{
   background-color: rgb(36, 36, 36);
   border:solid rgb(110, 110, 110); 
   border-width:0.5px;
-  border-radius: 15px;
+  border-radius: 50%;
   -webkit-tap-highlight-color: rgba(167, 169, 170, 0);  
 
 
