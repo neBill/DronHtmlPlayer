@@ -85,10 +85,10 @@ p{
   font-size: 4em;
   padding: 8px;
   width: 120px;
-  height: 100px;
+  height: 120px;
   margin: 0px 60px;
   background-color: rgb(36, 36, 36);
-  border:solid rgb(120, 120, 120); 
+  border:solid rgb(150, 150, 150); 
   border-width:0.5px;
   border-radius: 50%;
   -webkit-tap-highlight-color: rgba(167, 169, 170, 0);  
@@ -105,7 +105,7 @@ p{
 
 
 
-.play_button:active{
+.play_button:active, .prev_button:active, .next_button:active{
 
   color: rgb(255, 255, 255);
 
