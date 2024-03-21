@@ -179,10 +179,18 @@ function nextTrack() {
   document.getElementById(track_index).style.color = 'var(--button-color)' 
 
   track_index++
-  if (track_index > songs.length - 1) {
 
+  //alert(songs.length)
+
+  const songsLength = Object.keys(songs).length - 1
+
+  if (track_index > songsLength) {
+
+   // alert(track_index)
     track_index = 0
   }
+
+  //alert(track_index)
 
   loadTrack(track_index)
   playTrack()
