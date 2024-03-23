@@ -187,3 +187,156 @@ p{
   /* font-weight: bold; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* =================================================================*/
+
+@media screen and (min-width: 1200px) {
+  
+  .song_button{
+
+    background:none;
+    border:none; 
+    padding-bottom:6px;
+    padding-top:6px;
+    cursor: pointer;
+    color: var(--button-color);
+    font-weight: bold;
+    font-size: 20px;
+    display: block; 
+    width: 98%;
+    -webkit-tap-highlight-color: rgba(167, 169, 170, 0);
+  }
+  
+  p{
+  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #656c75;
+    
+  }
+  
+  
+  /* .songs_container {  
+  
+    background-color: rgb(31, 31, 31);
+   
+    flex: 1;
+  
+  } */
+  
+  .player_container{ 
+  
+    background-color: rgb(24, 24, 24); 
+    display: flex;
+    flex-direction: column;
+    border-width:1px 0px;
+    justify-content: center;
+    align-items: center;  
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    left: 0;    
+  
+  }
+  
+  /* .song:hover {
+  
+    color: rgb(89, 181, 235);
+  } */
+  
+  .header {
+  
+    background-color: rgb(24, 24, 24); 
+    width: 100%;   
+    text-align: center;  
+    justify-content: center;         
+    
+    padding-top: 4px;  
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    border-bottom: 1px solid rgb(92, 93, 94); 
+   
+  }
+  
+  .play_button, .prev_button, .next_button{
+  
+    text-align: center;
+    font-weight: bold;
+    color:  #606975; 
+    font-size: 1.2em;
+    padding: 6px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    margin: 0px 30px;
+    background-color: rgb(36, 36, 36);
+    border:solid rgb(180, 180, 180); 
+    border-width:0.5px;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: rgba(167, 169, 170, 0);   
+  
+  }
+  
+  .play_button {
+  
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+  }
+  
+  
+  
+  /* .play_button:active, .prev_button:active, .next_button:active{
+  
+    color: rgb(255, 255, 255);
+
+  } */
+  
+  .play_buttons_container {
+  
+    padding-top: 1%;
+    padding-bottom: 2%;
+    justify-content: center;
+    align-items: center;   
+    
+  }
+  
+  .slider_container {
+  
+    width: 100%; 
+    background: #6a6b6c;    
+    
+  }
+  
+  .slider {
+    
+    height: 10px;
+    width: 0px; 
+    background: #0963c3;
+    
+  }
+  
+  .progress_container{
+  
+    width : 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+       
+  }
+  
+  .current_time,.total_duration {
+    padding: 10px;
+    color: #606975;
+    font-size: 1.4em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+}
+
+
+
